@@ -2,10 +2,10 @@ package com.example.cypherjavafx;
 
 public class CaesarCypher  {
 
-    private final int cypherKey;
+     static int cypherKey;
 
     public CaesarCypher(int cypherKey) {
-        this.cypherKey = cypherKey;
+        CaesarCypher.cypherKey = cypherKey;
     }
 
     public String cypher(String text) {
@@ -15,6 +15,14 @@ public class CaesarCypher  {
             builder.append(c);
         }
         return builder.toString();
+    }
+
+    public int getCypherKey() {
+        return cypherKey;
+    }
+
+    public void setCypherKey(int cypherKey) {
+        this.cypherKey = cypherKey;
     }
 
     public String decypher(String text) {

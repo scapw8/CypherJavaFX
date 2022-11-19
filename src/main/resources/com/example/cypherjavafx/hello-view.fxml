@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="280.0" prefWidth="390.0" spacing="20.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="com.example.cypherjavafx.HelloController">
+<VBox alignment="CENTER" prefHeight="280.0" prefWidth="390.0" spacing="20.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cypherjavafx.HelloController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
@@ -16,5 +16,5 @@
          <Font size="18.0" />
       </font></Label>
     <Button onAction="#page_two" prefHeight="49.0" prefWidth="185.0" text="Encryption / Decryption" />
-   <Button mnemonicParsing="false" onAction="#Mode2" prefHeight="55.0" prefWidth="183.0" text="Brute Force" />
+   <Button mnemonicParsing="false" onAction="#page_three" prefHeight="55.0" prefWidth="183.0" text="Brute Force" />
 </VBox>

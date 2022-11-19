@@ -35,7 +35,32 @@ public class HelloController implements Initializable {
     @FXML
     private TextArea textArea;
 
-    CaesarCypher cypher = new CaesarCypher(9);
+    @FXML
+    private TextArea textarea2;
+
+    BruteForce bruteForce = new BruteForce();
+
+   // CaesarCypher cypher = new CaesarCypher(1);
+   @FXML
+   void BruteChooseFile(MouseEvent event) throws FileNotFoundException {
+       File file = fileChooser.showOpenDialog(new Stage());
+       Scanner scanner = new Scanner(file);
+       while (scanner.hasNextLine()){
+           textarea2.appendText(scanner.nextLine() + "\n");
+   }}
+
+    @FXML
+    void BruteStart(MouseEvent event) throws IOException {
+        File file = fileChooser.showOpenDialog(new Stage());
+        Scanner scanner = new Scanner(file);
+        while (scanner.hasNextLine()){
+            BruteForce.brute(scanner.nextLine());
+            textArea.appendText(scanner.nextLine() + "\n");
+        }
+        }
+
+
+
 
     @FXML
     void getText(MouseEvent event) throws FileNotFoundException {
@@ -90,10 +115,25 @@ public class HelloController implements Initializable {
 
         }
 
+
     }
-     private String decrypt (String key) {
-        return null;
-     }
+
+    CaesarCypher cypher = new CaesarCypher(2);
+
+  //   private String decrypt (String key) {
+  //      return new CaesarCypher(Integer.parseInt(key)).cypher(this.cypherKeyInput.getText());
+  //   }
+
+
+
+
+
+
+
+
+
+
+
     public void page_two(ActionEvent event) throws IOException {
 
 
@@ -103,6 +143,17 @@ public class HelloController implements Initializable {
         Parent root = FXMLLoader.load(getClass().getResource("Mode1.fxml"));
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+    }
+
+    @FXML
+    void page_three(ActionEvent event) throws IOException {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.close();
+        Stage primaryStage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("Mode2.fxml"));
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
+
     }
 
     public void Menu(ActionEvent event) throws IOException {
@@ -135,4 +186,6 @@ public class HelloController implements Initializable {
         printWriter.println();
         printWriter.close();
     }
+
+
 }
